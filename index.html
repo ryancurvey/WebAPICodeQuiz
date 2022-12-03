@@ -1,23 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web API Code Quiz</title>
-    <link rel="stylesheet" href="./Assets/style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web API Code Quiz</title>
+  <link rel="stylesheet" href="./Assets/style.css">
 </head>
+
 <body>
-    <nav class="title">
-        <ul>
-            <li>View Highscores</li>
-            <li>Timer</li>
-        </ul>
-    </nav>
+
+  <header id="init">
     <h1 class="headline"> Coding Quiz Challenge</h1>
     <h3 class="instructions">Try to answer the following code-related questions within the time limit.
-        Keep in mid that incorrect answers will penalize your time by 10 seconds!!
+      Keep in mid that incorrect answers will penalize your time by 10 seconds!!
     </h3>
-    <button class="button">Start</button>
+    <button onclick="startQuiz(event)" id="start-button">Start Quiz</button>
+  </header>
+  <main>
+
+    <div id="questions" hidden="true">
+      <h2>Answers</h2>
+      <button onclick="handleAnswer(event)" id="a-1"></button>
+      <button onclick="handleAnswer(event)" id="a-2"></button>
+      <button onclick="handleAnswer(event)" id="a-3"></button>
+      <button onclick="handleAnswer(event)" id="a-4"></button>
+    </div>
+
+    <form hidden="true">
+      <div class="player">
+        <h3>Thanks for Playing <span class="score"></span></h3>
+        <p>Enter Your Initials</p>
+        <input class="player-input" type="text" placeholder="enter initials">
+        <button class="submit">Save Score</button>
+        <button class="home">Home</button>
+      </div>
+    </form>
+
+    <div class="high-scores" hidden="true">
+      <div>
+        <h3>High Scores</h3>
+        <p id="playerScore">
+          <button class="home">Home</button>
+        </p>
+      </div>
+    </div>
+  </main>
+<footer>
+  <p>By Ryan</p>
+</footer>
+  <script src="./Assets/script.js"></script>
 </body>
+
 </html>
