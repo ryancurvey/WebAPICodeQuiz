@@ -1,18 +1,25 @@
 var startButton = document.querySelector("#start-button")
 var quizSection = document.querySelector("#questions");
 var initSection = document.querySelector("#init")
+var answersSelection1 = document.querySelector("#a-1");
+var answersSelection2 = document.querySelector("#a-2");
+var answersSelection3 = document.querySelector("#a-3");
+var answersSelection4 = document.querySelector("#a-4");
+var questionSection = document.querySelector(".Quiz-Questions")
+var answerButton = document.getElementsByClassName(".Answer-Button")
+
 var currentQuestionIndex = 0
 
 var questionsArray = [
     {
-        questions: "commonly used data types DO NOT include:",
+        quiz: "commonly used data types DO NOT include:",
         qs: ["strings", "booleans", "alerts", "numbers"],
         answer: "alerts",
 
     },
 
     {
-        quiz: "the condition in an if/else statemwent is encliosed with _____",
+        quiz: "the condition in an if/else statemwent is enclosed with _____",
         qs: ["quotess", "curly brackets", "parentheses", "square brackets"],
         answer: "parentheses",
 
@@ -49,12 +56,23 @@ function startQuiz(event) {
 };
 
 function getQuestion() {
-    console.log("getting question", questionsArray[currentQuestionIndex]) 
-    var currentQuestion = questionsArray[currentQuestionIndex]
-for (let i = 0; i < currentQuestion.qs.length; i++) {
-    const element = currentQuestion.qs[i];
-    console.log(quizSection.children[0].textContent)
-}
+    console.log("getting question", questionsArray[currentQuestionIndex])
+    var currentQuestion = questionsArray[currentQuestionIndex].quiz;
+    questionSection.textContent = currentQuestion;
+    var currentAnswer = questionsArray[currentQuestionIndex].qs;
+    for (let i = 0; i < currentAnswer.length; i++) {
+        const element = currentQuestion.qs[i];
+        console.log(quizSection.children[0].textContent);
+
+        
+        
+        for (let j = 0; j < answerButton.length; j++) {
+            answerButton[j].textContent = currentAnswer;
+
+        }
+
+
+    }
     if (currentQuestionIndex >= questionsArray.length) {
         document.write("quiz is over")
     }
@@ -66,7 +84,7 @@ function handleAnswer(event) {
 
     if (event.target) {
         getQuestion()
-        
+
     }
     // increment current question index at the end 
     currentQuestionIndex++
